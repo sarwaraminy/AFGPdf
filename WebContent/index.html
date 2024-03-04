@@ -1,0 +1,52 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
+	"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Java PDF File Upload</title>
+<script>
+ function Validit(){
+	 if(frmPDFupl.file.value ==""){
+		 alert("Please browse and PDF file");
+	 }
+	 else
+		 if(document.getElementById('gen').checked){
+			 document.frmPDFupl.savePath.value = "path to save the pdf";
+		 }
+		 else{
+			 document.frmPDFupl.savePath.value="path to save the pdf" +
+			 document.frmPDFupl.ACCTID.value;
+		 }
+		 frmPDFupl.submit();
+ }
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	$("#txtPortID").hide();
+  $("span").click(function(){
+    $("#txtPortID").show();
+  });
+});
+</script>
+</head>
+<body>
+<center>
+  <h1>Java PDF File Upload</h1>
+	<form name="frmPDFupl" method="post" action="PdfUpload" enctype="multipart/form-data">
+		<table>
+		  <tr><td>Select file to upload: <input type="file" name="file" size="60" /> </td></tr>
+		  <tr><td><input type="radio" id="gen" name="pdfsp" value="g">For generic use</td></tr>
+		  <tr><td><input type="radio" id="sp" name="pdfsp" value="s"></a><span><a href="#">Apply to specific portfolio</a></span></td></tr>
+		  <tr id="txtPortID"><td>Portfolio ID: <input type="text" name="ACCTID" value="" /> </td></tr>
+		  <tr><td><input type="button" value="Upload" onClick="Validit();"></td></tr>
+	   </table>
+	   <input type="hidden" name="savePath" value="" />
+       <input type="hidden" name="pdfUplPath" value="path to save the pdf">
+	   <input type="hidden" name="logPath" value="path to save the log file" />
+	</form>
+		
+</center>
+</body>
+</html>

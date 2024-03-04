@@ -1,0 +1,31 @@
+for creating AFGPdf.war do the following steps:
+
+ 1. cut the AFGPdf\WebContent\index.html and past it to somewhere for purpose of backing up
+ 2. edit AFGPdf\WebContent\WEB-INF\web.xml like the following:
+ 
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>AFGPdf</display-name>
+  <!--  
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+  </welcome-file-list>
+--> 
+  <servlet>
+        <description>Java PDF Upload Servlet</description>
+        <display-name>AFGPdf</display-name>
+        <servlet-name>AFGPdf</servlet-name>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AFGPdf</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+   
+</web-app>   
+
+ 3. right click on AFGPdf in Eclipse > Export > WAR file > select destination and save the FRXlsx.war
+                     Note: un-check the "Export source files" if it is checked
+                     
+
+                     
